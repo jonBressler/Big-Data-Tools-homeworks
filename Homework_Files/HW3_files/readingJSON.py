@@ -1,6 +1,7 @@
 # this is for reading the JSON from an API
 import requests
 import json
+import redis
 
 url = "https://movies-tv-shows-database.p.rapidapi.com/"
 
@@ -36,7 +37,7 @@ if response.status_code == 200:
 
     print(response.json())
 
-# Trying to get Title but via JSON.GET
-import pandas as pd
-df = pd.DataFrame(data['title'])
-print(df)
+# # Trying to get Title but via JSON.GET
+# import pandas as pd
+# df = pd.DataFrame(data['title'])
+# print(df)
