@@ -1,0 +1,12 @@
+mysql:
+  host: localhost
+  user: default
+  password: password
+  port: mysqlport
+
+redis:
+  host: redis-11906.c56.east-us.azure.cloud.redislabs.com
+  db: 0
+  user: default
+  password: password
+  port: 11906
