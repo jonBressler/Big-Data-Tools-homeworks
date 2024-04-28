@@ -1,0 +1,9 @@
+Pushing to Git
+1. Add changes to the Staging Area:
+    git add .
+
+2. Commit Changes:
+    git commit -m "Some comment"
+
+3: Push Changes to your Branch on GitHub:
+    git push origin <your-branch-name>

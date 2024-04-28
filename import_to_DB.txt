@@ -1,0 +1,44 @@
+# https://www.mongodb.com/docs/database-tools/mongoimport/
+clusterString = 'mongodb+srv://jonbressler1895:<password>@finalprojectcluster.g9zftpp.mongodb.net/?retryWrites=true&w=majority&appName=FinalProjectCluster'
+mongoimport clusterString Sales_Records.csv
+
+MongoDB Queries:
+1. Top 10 Countries by Total Revenue
+// This code will query just the "_id", "Country" and "Total Revenue" fields and make them available. The data is already descending order for the Total Revenue. In the MongoDB Atlas tool,
+we can display only the top 10 countries, and to make the chart entries easier to differentiate we will bring the minumum Y value to 800,000,000.
+[
+  {
+    $group: {
+      _id: "$_id",
+      Country: { $first: "$Country" },
+      Total_Revenue: { $sum: "$Total Revenue" }
+            }
+  },
+]
+
+2. Total Profit for Each Item
+[
+  {
+    $group: {
+      _id: "$_id",
+      Total_Profit: { $sum: "$Total Profit" },
+      Item_Type: { $first: "$Item Type" }
+            }
+  },
+]
+
+3. Item Sales Records for Japan
+[
+  {
+    $match: {
+      Country: "Japan"
+              }
+  },
+  {
+    $group: {
+      _id: "$_id",
+      Country: { $first: "$Country" },
+      Item_Type: { $first: "$Item Type" }
+            }
+  },
+]
